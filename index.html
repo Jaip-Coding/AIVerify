@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>AIVerify EU — AI Act Readiness</title>
+  <meta name="description" content="Evidence-based EU AI Act readiness assessment MVP." />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="AIVerify EU home">
+      <span class="brand-mark" aria-hidden="true">A</span>
+      <span>AIVerify <b>EU</b></span>
+    </a>
+    <nav>
+      <a href="#how">How it works</a>
+      <a href="#methodology">Methodology</a>
+      <a href="#sources">Sources</a>
+    </nav>
+    <a class="header-cta" href="#scanner">Run readiness scan</a>
+  </header>
+
+  <main id="top">
+    <section class="hero shell">
+      <div class="hero-copy">
+        <div class="eyebrow"><span></span> Evidence-based AI governance</div>
+        <h1>Find potential <em>AI Act gaps</em> before they become problems.</h1>
+        <p class="hero-sub">Scan public website evidence, confirm what the scanner cannot know, and generate an auditable readiness assessment — without pretending software can give a definitive legal verdict.</p>
+        <div class="hero-actions">
+          <a class="primary" href="#scanner">Start free assessment <span>→</span></a>
+          <a class="secondary" href="#methodology">See our methodology</a>
+        </div>
+        <div class="trust-row">
+          <span>✓ Deterministic rule engine</span>
+          <span>✓ Evidence attached</span>
+          <span>✓ Uncertainty shown</span>
+        </div>
+      </div>
+      <div class="hero-card" aria-label="Example assessment">
+        <div class="mock-top"><div><small>READINESS ASSESSMENT</small><strong>acme.example</strong></div><span class="live-dot">LIVE</span></div>
+        <div class="score-ring"><div><strong>78%</strong><span>assessment<br>coverage</span></div></div>
+        <div class="mini-stat-row">
+          <div><b>4</b><span>Passed</span></div>
+          <div><b>2</b><span>Review</span></div>
+          <div><b>3</b><span>Unknown</span></div>
+        </div>
+        <div class="mock-finding warn"><i>!</i><div><b>AI interaction disclosure</b><span>Disclosure not verified in scanned evidence</span></div><small>REVIEW</small></div>
+        <div class="mock-finding ok"><i>✓</i><div><b>Evidence trail</b><span>Source text and scan timestamp retained</span></div><small>PASS</small></div>
+      </div>
+    </section>
+
+    <section id="scanner" class="scanner-section shell">
+      <div class="section-heading">
+        <div><span class="kicker">STEP 01</span><h2>Scan public website evidence</h2></div>
+        <p>The MVP scans one public HTML page. It never treats “not detected” as proof that something does not exist.</p>
+      </div>
+      <div class="scanner-box">
+        <label for="urlInput">Company website</label>
+        <div class="url-row">
+          <div class="url-input-wrap"><span>⌁</span><input id="urlInput" type="text" inputmode="url" autocomplete="url" placeholder="example.com" /></div>
+          <button id="scanBtn" class="primary button">Run evidence scan <span>→</span></button>
+        </div>
+        <div class="microcopy">Public webpages only · No login required · Private/local network addresses are blocked</div>
+      </div>
+
+      <div id="scanProgress" class="progress-panel hidden" aria-live="polite">
+        <div class="spinner"></div>
+        <div><strong>Scanning public evidence…</strong><span id="progressText">Resolving website securely</span></div>
+      </div>
+      <div id="scanError" class="error-box hidden"></div>
+      <div id="scanResults" class="results hidden"></div>
+    </section>
+
+    <section id="questionnaire" class="question-section shell hidden">
+      <div class="section-heading">
+        <div><span class="kicker">STEP 02</span><h2>Confirm what a website cannot know</h2></div>
+        <p>Your answers are stored only in the current browser session in this MVP and are clearly separated from scanner evidence.</p>
+      </div>
+      <form id="questionsForm" class="questions"></form>
+      <div class="assessment-action"><button id="assessBtn" type="button" class="primary button">Generate readiness assessment <span>→</span></button></div>
+    </section>
+
+    <section id="assessment" class="assessment-section shell hidden">
+      <div class="section-heading">
+        <div><span class="kicker">STEP 03</span><h2>Readiness assessment</h2></div>
+        <p>This is a structured readiness assessment, not a legal opinion or certification of compliance.</p>
+      </div>
+      <div id="assessmentContent"></div>
+    </section>
+
+    <section id="how" class="how shell">
+      <div class="section-heading centered"><div><span class="kicker">HOW IT WORKS</span><h2>Evidence first. Rules second. AI last.</h2></div></div>
+      <div class="steps-grid">
+        <article><span>01</span><h3>Collect evidence</h3><p>Fetch a public webpage, detect relevant technology and visible disclosures, and preserve what was actually observed.</p></article>
+        <article><span>02</span><h3>Confirm facts</h3><p>Ask the company about internal AI use, provider/deployer status and activities that cannot be inferred externally.</p></article>
+        <article><span>03</span><h3>Apply rules</h3><p>A deterministic rules engine maps evidence and declarations to Article 50 readiness checks. No LLM decides compliance.</p></article>
+        <article><span>04</span><h3>Show uncertainty</h3><p>Every result is Pass, Potential review, Requires confirmation or Not applicable, with confidence and evidence.</p></article>
+      </div>
+    </section>
+
+    <section id="methodology" class="method shell">
+      <div class="method-card">
+        <div><span class="kicker">METHODOLOGY</span><h2>Designed not to overclaim.</h2><p>The product intentionally refuses to turn missing evidence into a legal conclusion. A chat widget indicator, for example, is not treated as proof that AI is used. Where the implementation cannot be verified, the result remains unknown or is flagged for review.</p></div>
+        <div class="principles">
+          <div><b>01</b><span><strong>No “compliant” badge</strong><small>Readiness findings only.</small></span></div>
+          <div><b>02</b><span><strong>Source attribution</strong><small>Rule basis shown for each finding.</small></span></div>
+          <div><b>03</b><span><strong>Versioned ruleset</strong><small>Assessment records the ruleset date/version.</small></span></div>
+          <div><b>04</b><span><strong>Human escalation</strong><small>Ambiguous or higher-risk cases require expert review.</small></span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="sources" class="sources shell">
+      <div class="section-heading"><div><span class="kicker">PRIMARY SOURCES</span><h2>Rules should trace back to official material.</h2></div></div>
+      <div class="source-list">
+        <a href="https://eur-lex.europa.eu/eli/reg/2024/1689/oj" target="_blank" rel="noreferrer"><div><b>Regulation (EU) 2024/1689</b><span>Official AI Act text — Article 50 transparency obligations</span></div><em>↗</em></a>
+        <a href="https://digital-strategy.ec.europa.eu/en/library/guidelines-transparency-obligations-providers-and-deployers-ai-systems" target="_blank" rel="noreferrer"><div><b>European Commission Guidelines</b><span>Transparency obligations for providers and deployers — 20 July 2026</span></div><em>↗</em></a>
+        <a href="https://digital-strategy.ec.europa.eu/en/policies/guidelines-ai-transparency-obligations" target="_blank" rel="noreferrer"><div><b>Commission Article 50 Overview</b><span>Practical overview of transparency duties applying from 2 August 2026</span></div><em>↗</em></a>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="shell"><div class="brand"><span class="brand-mark">A</span><span>AIVerify <b>EU</b></span></div><p>Prototype readiness tooling. Not legal advice. For legal conclusions, consult a qualified professional.</p><span>Ruleset 2026.08.31-v1</span></div></footer>
+
+  <script src="/app.js"></script>
+</body>
+</html>
